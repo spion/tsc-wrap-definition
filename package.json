@@ -1,10 +1,10 @@
 {
   "name": "tsc-wrap-definition",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Wrap typescript definition files for a npm module",
   "main": "index.js",
   "bin": {
-    "tsc-wrap-definition":"index.js"
+    "tsc-wrap-definition": "index.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
