@@ -10,7 +10,10 @@ var modname = args._[0];
 
 process.stdin.pipe(bl(function(err, data) {
     if (err) throw err;
+    var processed = data.toString().split(/[\r\n]+/)
+    .map(function(line) { return line.replace(/^export declare/, 'export'); })
+    .join('\n');
     process.stdout.write('declare module "' + process.argv[process.argv.length - 1] + '" {\n')
-    process.stdout.write(data);
+    process.stdout.write(processed);
     process.stdout.write('}\n');
 }));
