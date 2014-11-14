@@ -1,6 +1,6 @@
 {
   "name": "tsc-wrap-definition",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Wrap typescript definition files for a npm module",
   "main": "index.js",
   "bin": {
