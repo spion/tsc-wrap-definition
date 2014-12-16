@@ -10,12 +10,14 @@ var args = require('optimist')
 var modname = args._[0];
 
 var input = args.input ? fs.createReadStream(args.input) : process.stdin;
+var output = args.output ? fs.createWriteStream(args.output) : process.stdout;
+
 input.pipe(bl(function(err, data) {
     if (err) throw err;
     var processed = data.toString().split(/[\r\n]+/)
     .map(function(line) { return line.replace(/^export declare/, 'export'); })
     .join('\n');
-    process.stdout.write('declare module "' + process.argv[process.argv.length - 1] + '" {\n')
-    process.stdout.write(processed);
-    process.stdout.write('}\n');
+    output.write('declare module "' + process.argv[process.argv.length - 1] + '" {\n')
+    output.write(processed);
+    output.write('}\n');
 }));
